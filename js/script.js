@@ -39,7 +39,7 @@ let pokemonRepository = (function () {
 
 pokemonRepository.getAll().forEach(function (pokemon) {
 
-  console.log(pokemon)
+  console.log(pokemon);
 
   if (pokemon.height > 0.6){
 
