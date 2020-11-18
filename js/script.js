@@ -1,60 +1,59 @@
 let pokemonRepository = (function () {
-
-let pokemonList = [
-{
-  name: "Bulbasaur", 
-  height: 0.7, 
-  abilities: ["grass", "poison"]
-},
-{
-  name: "Pikachu", 
-  height: 0.4, 
-  abilities: ["static","lightningrod"]
-},
-{
-  name: "Squirtle", 
-  height: 0.5, 
-  abilities: ["rain-dish", "torrent"]
-}
-];
-
-  function add(pokemon) {
-    pokemonList.push(pokemon);
-}
-
+  let pokemonList = [
+    {
+      name: "Bulbasaur", 
+      height: 0.7, 
+      abilities: ["grass", "poison"]
+    },
+    {
+      name: "Pikachu", 
+      height: 0.4, 
+      abilities: ["static","lightningrod"]
+    },
+    {
+      name: "Squirtle", 
+      height: 0.5, 
+      abilities: ["rain-dish", "torrent"]
+    }
+  ];
   function getAll() {
     return pokemonList;
-}
-
+  }
+  function add(pokemon) {
+    if (
+      typeof pokemon === "object" &&
+      "name" in pokemon &&
+      "height" in pokemon &&
+      "abilities" in pokemon
+    ) {
+      pokemonList.push(pokemon);
+    } else {
+      console.log("pokemon is not correct");  
+    }
+  }
   return {
-    add: add,
-    getAll: getAll
-};
+    getAll: getAll,
+    add: add
+  };
 })();
 
+pokemonRepository.getAll().forEach(function (pokemon) {
 
-  pokemonList.forEach(function(pokemon) {
-  //Pick the pokemon name and height if height is greater than 0.6 then write this statement "-Wow, that's big"
-  if (pokemonList.height >0.6){
-    document.write(pokemonList.name + " (" + "height: " + pokemonList.height + ")" + " - Wow, that's big!" + "<br>"); 
+  console.log(pokemon)
+
+  if (pokemon[i].height > 0.6){
+
+     document.write(pokemon[i].name + " (" + "height: " + pokemon[i].height + ")" + " - Wow, that's big!" + "<br>"); 
   }
-  //if the pokemon height is less than 0.6 then write this statement "is a pokemon"
+   //if the pokemon height is less than 0.6 then write this statement "is a pokemon"
   else{
-    document.write(pokemonList.name + " (" + "height: " + pokemonList.height + ")" + " is a pokemon " + "<br>"); 
+     document.write(pokemon[i].name + " (" + "height: " + pokemon[i].height + ")" + " is a pokemon " + "<br>"); 
   }
 });
 
 
-//   for (let i=0; i < pokemonList.length; i++) {
-//   //Pick the pokemon name and height if height is greater than 0.6 then write this statement "-Wow, that's big"
-//   if (pokemonList[i].height >0.6){
-//     document.write(pokemonList[i].name + " (" + "height: " + pokemonList[i].height + ")" + " - Wow, that's big!" + "<br>"); 
-//   }
-//   //if the pokemon height is less than 0.6 then write this statement "is a pokemon"
-//   else{
-//     document.write(pokemonList[i].name + " (" + "height: " + pokemonList[i].height + ")" + " is a pokemon " + "<br>"); 
-//   }
-// }
+
+
 
 
 
