@@ -1,24 +1,21 @@
 let pokemonRepository = (function () {
-  let pokemonList = [
+  let repository = [
     {
       name: "Bulbasaur", 
       height: 0.7, 
-      abilities: ["grass", "poison"]
+      abilities: ["grass", "poison"],
     },
     {
       name: "Pikachu", 
       height: 0.4, 
-      abilities: ["static","lightningrod"]
+      abilities: ["static","lightningrod"],
     },
     {
       name: "Squirtle", 
       height: 0.5, 
-      abilities: ["rain-dish", "torrent"]
+      abilities: ["rain-dish", "torrent"],
     }
   ];
-  function getAll() {
-    return pokemonList;
-  }
   function add(pokemon) {
     if (
       typeof pokemon === "object" &&
@@ -26,30 +23,52 @@ let pokemonRepository = (function () {
       "height" in pokemon &&
       "abilities" in pokemon
     ) {
-      pokemonList.push(pokemon);
+      repository.push(pokemon);
     } else {
-      console.log("pokemon is not correct");  
+      console.log("pokemon is not correct");
     }
   }
+  function getAll() {
+    return repository;
+  }
+  function addListItem(pokemon) {
+    let pokemonList = document.querySelector(".pokemon-list");
+    let listpokemon = document.createElement("li");
+    let button = document.createElement("button");
+
+    button.addEventListener('click', function(event) {
+      console.log(pokemonRepository.showDetails(pokemon));
+    });
+
+    button.innerText = pokemon.name;
+    button.classList.add("button-class");
+    listpokemon.appendChild(button);
+    pokemonList.appendChild(listpokemon);  
+  }
+
+  function showDetails(pokemon) {
+    console.log(pokemon);
+
+  }
   return {
+    add: add,
     getAll: getAll,
-    add: add
+    addListItem: addListItem,
+    showDetails: showDetails,
   };
 })();
 
+pokemonRepository.add({ name: "Charizard", height: 1.7, abilities: ["fire", "flying"] });
+
+console.log(pokemonRepository.getAll());
+
 pokemonRepository.getAll().forEach(function (pokemon) {
 
-  console.log(pokemon);
-
-  if (pokemon.height > 0.6){
-
-     document.write(pokemon.name + " (" + "height: " + pokemon.height + ")" + " - Wow, that's big!" + "<br>"); 
-  }
-   //if the pokemon height is less than 0.6 then write this statement "is a pokemon"
-  else{
-     document.write(pokemon.name + " (" + "height: " + pokemon.height + ")" + " is a pokemon " + "<br>"); 
-  }
+  pokemonRepository.addListItem(pokemon);
+  
 });
+
+
 
 
 
