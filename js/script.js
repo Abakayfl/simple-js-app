@@ -86,12 +86,20 @@ let pokemonRepository = (function () {
     nameElement.innerText = item.name;
     
     let heightElement = document.createElement('p');
-    heightElement.innerText = item.height;
+    heightElement.innerText = 'Height: ' + item.height;
+
+    let container = document.querySelector('#image-container');
+
+    let myImage = document.createElement('img');
+    myImage.src = item.imageUrl;
+
     
     modal.appendChild(closeButtonElement);
     modal.appendChild(nameElement);
     modal.appendChild(heightElement);
+    modal.appendChild(myImage);
     modalContainer.appendChild(modal);
+    
     
     modalContainer.classList.add('is-visible');
   }
