@@ -55,9 +55,15 @@ body {
   box-sizing: border-box;
   background: #fff;
   padding: 15px;
-  width: 100%;
+  width: 500px;
+  height: 300px;
   max-width: 700px;
+  margin-left: -250px;
+  margin-right: -250px;
+  left: 50%;
+  top: 10%;
   text-align: left;
+  position: absolute;
 }
 
 .modal-close {

@@ -127,33 +127,33 @@ let pokemonRepository = (function () {
     }
   });
 
-  function showModal(item) {
-    let modalBody = $(".modal-body");
-    let modalTitle = $(".modal-title");
-    let modalHeader = $(".modal-header");
+  // function showModal(item) {
+  //   let modalBody = $(".modal-body");
+  //   let modalTitle = $(".modal-title");
+  //   let modalHeader = $(".modal-header");
 
-    modalTitle.empty();
-    modalBody.empty();
+  //   modalTitle.empty();
+  //   modalBody.empty();
 
-    //creating element for name in modal content
-    let nameElement = $("<h1>" + item.name + "</h1>");
-    //creating img in modal content
-    let imageElementFront = $('<img class="modal-img" style="width:50%">');
-    imageElementFront.attr("src", item.imageUrl);
-    let imageElementBack = $('<img class="modal-img" style="width:50%">');
-    imageElementBack.attr("src", item.imageUrl);
-    //creating element for height in modal content
-    let heightElement = $("<p>" + "height: " + item.height + "</p>");
-    //creating element for type in modal content
-    // let typesElement = $("<p>" + "types: " + item.types + "</p>");
+  //   //creating element for name in modal content
+  //   let nameElement = $("<h1>" + item.name + "</h1>");
+  //   //creating img in modal content
+  //   let imageElementFront = $('<img class="modal-img" style="width:50%">');
+  //   imageElementFront.attr("src", item.imageUrl);
+  //   let imageElementBack = $('<img class="modal-img" style="width:50%">');
+  //   imageElementBack.attr("src", item.imageUrl);
+  //   //creating element for height in modal content
+  //   let heightElement = $("<p>" + "height: " + item.height + "</p>");
+  //   //creating element for type in modal content
+  //   // let typesElement = $("<p>" + "types: " + item.types + "</p>");
 
-    modalTitle.append(nameElement);
-    modalBody.append(imageElementFront);
-    modalBody.append(imageElementBack);
-    modalBody.append(heightElement);
-    // modalBody.append(typesElement);
+  //   modalTitle.append(nameElement);
+  //   modalBody.append(imageElementFront);
+  //   modalBody.append(imageElementBack);
+  //   modalBody.append(heightElement);
+  //   // modalBody.append(typesElement);
     
-  }
+  // }
 
   return {
     add: add,
@@ -180,32 +180,32 @@ let modalContainer = document.querySelector('#modal-container');
   
   // REST OF CODE
   
-  function showModal(item) {
-    // Clear all existing modal content
-    modalContainer.innerHTML = '';
+  // function showModal(item) {
+  //   // Clear all existing modal content
+  //   modalContainer.innerHTML = '';
     
-    let modal = document.createElement('div');
-    modal.classList.add('modal');
+  //   let modal = document.createElement('div');
+  //   modal.classList.add('modal');
     
-    // Add the new modal content
-    let closeButtonElement = document.createElement('button');
-    closeButtonElement.classList.add('modal-close');
-    closeButtonElement.innerText = 'Close';
-    closeButtonElement.addEventListener('click', hideModal);
+  //   // Add the new modal content
+  //   let closeButtonElement = document.createElement('button');
+  //   closeButtonElement.classList.add('modal-close');
+  //   closeButtonElement.innerText = 'Close';
+  //   closeButtonElement.addEventListener('click', hideModal);
     
-    let titleElement = document.createElement('h1');
-    titleElement.innerText = item.name;
+  //   let titleElement = document.createElement('h1');
+  //   titleElement.innerText = item.name;
     
-    let contentElement = document.createElement('p');
-    contentElement.innerText = item.height;
+  //   let contentElement = document.createElement('p');
+  //   contentElement.innerText = item.height;
     
-    modal.appendChild(closeButtonElement);
-    modal.appendChild(titleElement);
-    modal.appendChild(contentElement);
-    modalContainer.appendChild(modal);
+  //   modal.appendChild(closeButtonElement);
+  //   modal.appendChild(titleElement);
+  //   modal.appendChild(contentElement);
+  //   modalContainer.appendChild(modal);
     
-    modalContainer.classList.add('is-visible');
-  }
+  //   modalContainer.classList.add('is-visible');
+  // }
   
   function hideModal() {
     modalContainer.classList.remove('is-visible');
