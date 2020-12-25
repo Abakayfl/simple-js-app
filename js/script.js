@@ -127,6 +127,34 @@ let pokemonRepository = (function () {
     }
   });
 
+  function showModal(item) {
+    let modalBody = $(".modal-body");
+    let modalTitle = $(".modal-title");
+    let modalHeader = $(".modal-header");
+
+    modalTitle.empty();
+    modalBody.empty();
+
+    //creating element for name in modal content
+    let nameElement = $("<h1>" + item.name + "</h1>");
+    //creating img in modal content
+    let imageElementFront = $('<img class="modal-img" style="width:50%">');
+    imageElementFront.attr("src", item.imageUrl);
+    let imageElementBack = $('<img class="modal-img" style="width:50%">');
+    imageElementBack.attr("src", item.imageUrl);
+    //creating element for height in modal content
+    let heightElement = $("<p>" + "height: " + item.height + "</p>");
+    //creating element for type in modal content
+    // let typesElement = $("<p>" + "types: " + item.types + "</p>");
+
+    modalTitle.append(nameElement);
+    modalBody.append(imageElementFront);
+    modalBody.append(imageElementBack);
+    modalBody.append(heightElement);
+    // modalBody.append(typesElement);
+    
+  }
+
   return {
     add: add,
     getAll: getAll,
@@ -201,6 +229,8 @@ let modalContainer = document.querySelector('#modal-container');
       hideModal();
     }
   });
+
+
 
 
 
