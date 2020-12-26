@@ -68,6 +68,8 @@ let pokemonRepository = (function () {
       showModal(item);
     });
   }
+
+  
   
   function showModal(item) {
     // Clear all existing modal content
