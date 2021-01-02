@@ -15,7 +15,7 @@ let pokemonRepository = (function() {
     let list = $(".pokemon-list");
     let listItem = $("<li></li>");
     let button = $("<button>" + pokemon.name.toUpperCase() + "</button>");
-    button.addClass("btn btn-outline-danger btn-lg btn-block");
+    button.addClass("btn btn-outline-danger");
     button.attr("data-toggle", "modal"); 
     button.attr("data-target", "#pokemonModal");
     listItem.append(button);
