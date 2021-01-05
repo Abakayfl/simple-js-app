@@ -1,7 +1,6 @@
 let pokemonRepository = (function() {
   let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-  let modalContainer = document.querySelector('#modal-container');
 
   function add(pokemon) {
     pokemonList.push(pokemon);
@@ -12,26 +11,26 @@ let pokemonRepository = (function() {
   }
 
   function addListItem(pokemon) {
-    let list = $(".pokemon-list");
-    let listItem = $("<li></li>");
-    let button = $("<button>" + pokemon.name.toUpperCase() + "</button>");
-    button.addClass("btn btn-outline-danger");
-    button.attr("data-toggle", "modal"); 
-    button.attr("data-target", "#pokemonModal");
+    let list = $('.pokemon-list');
+    let listItem = $('<li></li>');
+    let button = $('<button>' + pokemon.name.toUpperCase() + '</button>');
+    button.addClass('btn btn-outline-danger');
+    button.attr('data-toggle', 'modal');
+    button.attr('data-target', '#pokemonModal');
     listItem.append(button);
     list.append(listItem);
 
-    button.on("click", function(event) {
+    button.on('click', function(event) {
+      event.preventDefault();
       showDetails(pokemon);
     });
   }
 
   //This used to just display the pokemons details to the modal when clicked
   function showDetails(pokemon) {
-    loadDetails(pokemon).then(function ()
-      {
-        showModal(pokemon)
-      });
+    loadDetails(pokemon).then(function() {
+      showModal(pokemon)
+    });
   }
 
   function loadList() {
@@ -70,6 +69,32 @@ let pokemonRepository = (function() {
       });
   }
 
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//The functions below show the modal in the browser
+function showModal(pokemon) {
+  let modalBody = $('.modal-body');
+  let modalTitle = $('.modal-title');
+
+  modalTitle.empty(); //empties anything that was previously stored in these variables
+  modalBody.empty();
+
+  //add the new content into the new "modal" div (Name, height, and image content)
+  //Name element
+  let nameElement = $('<h1>' + pokemon.name.toUpperCase() + '</h1>');
+
+  //Height content
+  let heightElement = $('<p>' + 'Height: ' + pokemon.height + '</p>');
+
+  //Image content
+  let imageElement = $('<img class="modal-img" style="width:50%">');
+  imageElement.attr('src', pokemon.imageUrl);
+
+  //appends the children to their parent containers
+  modalTitle.append(nameElement);
+  modalBody.append(imageElement);
+  modalBody.append(heightElement);
+}
+
   return {
     add: add,
     getAll: getAll,
@@ -87,34 +112,4 @@ pokemonRepository.loadList().then(function() {
     pokemonRepository.addListItem(pokemon);
   });
 });
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//The functions below show the modal in the browser
-function showModal(pokemon) {
-  let modalBody = $(".modal-body");
-  let modalTitle = $(".modal-title");
-
-  modalTitle.empty(); //empties anything that was previously stored in these variables
-  modalBody.empty();
-
-  //add the new content into the new "modal" div (Name, height, and image content)
-  //Name element
-  let nameElement = $("<h1>" + pokemon.name.toUpperCase() + "</h1>");
-
-  //Height content
-  let heightElement = $("<p>" + "Height: " + pokemon.height + "</p>");
-
-  //Image content
-  let imageElement = $('<img class="modal-img" style="width:50%">');
-  imageElement.attr("src", pokemon.imageUrl);
-
-  //appends the children to their parent containers
-  modalTitle.append(nameElement);
-  modalBody.append(imageElement);
-  modalBody.append(heightElement);
-}
-
-
-
-
 
