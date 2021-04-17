@@ -10,9 +10,13 @@ The following features are implemented;
 - Navigation bar
 - Modals (The individual Pokémon cards are displayed as modals.)
 
-### Technical requirement:
+### Technical requirement
 
 - External API
 - CSS style
 - Javascript with format of ESLint and Prettier
 - UI Pattern 
+
+### Link of the app
+
+https://abakayfl.github.io/simple-js-app/index.html
