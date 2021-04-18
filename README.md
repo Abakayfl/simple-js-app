@@ -20,3 +20,5 @@ The following features are implemented;
 ### Link of the app
 
 https://abakayfl.github.io/simple-js-app/index.html
+
+![alt text](https://github.com/Abakayfl/simple-js-app/blob/main/Screen%20Shot%202021-04-18%20at%2012.28.20%20AM.png)
