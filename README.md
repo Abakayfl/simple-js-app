@@ -21,4 +21,4 @@ The following features are implemented;
 
 https://abakayfl.github.io/simple-js-app/index.html
 
-![alt text]()
+![alt text](https://github.com/Abakayfl/simple-js-app/blob/main/Screen%20Shot%202021-04-18%20at%2012.27.20%20AM.png)
